@@ -55,7 +55,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var utils = require('../utils');
 
 function trim(str) {
-  return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+  return str.replace(/^\s+/, '').replace(/\s+$/, '');
 }
 
 function getCookie(cookieName, cookieString) {
@@ -1546,7 +1546,7 @@ module.exports = function lolcation(loc) {
 
     return {
       expand: function (context) {
-        return template.replace(/\{([^\{\}]+)\}|([^\{\}]+)/g, function (_, expression, literal) {
+        return template.replace(/\{([^{}]+)}|([^{}]+)/g, function (_, expression, literal) {
           if (expression) {
             var operator = null,
                 values = [];
@@ -1557,7 +1557,7 @@ module.exports = function lolcation(loc) {
             }
 
             expression.split(/,/g).forEach(function (variable) {
-              var tmp = /([^:\*]*)(?::(\d+)|(\*))?/.exec(variable);
+              var tmp = /([^:*]*)(?::(\d+)|(\*))?/.exec(variable);
               values.push.apply(values, that.getValues(context, operator, tmp[1], tmp[2] || tmp[3]));
             });
 
@@ -1633,7 +1633,7 @@ module.exports = function lolcation(loc) {
     if (typeof name !== 'string') {
       name = String(name)
     }
-    if (/[^a-z0-9\-#$%&'*+.\^_`|~]/i.test(name)) {
+    if (/[^a-z0-9\-#$%&'*+.^_`|~]/i.test(name)) {
       throw new TypeError('Invalid character in header field name')
     }
     return name.toLowerCase()

@@ -1,6 +1,5 @@
 import csv
 import os
-from datetime import datetime
 from random import randint
 from django.core.management.base import BaseCommand
 from django.db import transaction
@@ -10,7 +9,8 @@ from Libros.models import Libro
 class Command(BaseCommand):
     help = 'Cargar libros desde archivo CSV'
 
-    def add_arguments(self, parser):
+    @staticmethod
+    def add_arguments(parser):
         parser.add_argument(
             '--file',
             type=str,
@@ -24,7 +24,7 @@ class Command(BaseCommand):
             help='Número máximo de libros a cargar (default: 200)'
         )
 
-    def handle(self, *args, **options):
+    def handle(self, **options):
         archivo_csv = options['file']
         limite = options['limit']
         

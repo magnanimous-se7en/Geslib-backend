@@ -5460,7 +5460,7 @@ S2.define('select2/core',[
       id = Utils.generateChars(4);
     }
 
-    id = id.replace(/(:|\.|\[|\]|,)/g, '');
+    id = id.replace(/[:.\[\],]/g, '');
     id = 'select2-' + id;
 
     return id;

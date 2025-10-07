@@ -4133,7 +4133,7 @@ var dataUser = new Data();
 //	5. Avoid exposing implementation details on user objects (eg. expando properties)
 //	6. Provide a clear path for implementation upgrade to WeakMap in 2014
 
-var rbrace = /^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,
+var rbrace = /^(?:\{[\w\W]*}|\[[\w\W]*])$/,
 	rmultiDash = /[A-Z]/g;
 
 function getData( data ) {
@@ -5787,7 +5787,7 @@ var
 	// checked="checked" or checked
 	rchecked = /checked\s*(?:[^=]|=\s*.checked.)/i,
 
-	rcleanScript = /^\s*<!\[CDATA\[|\]\]>\s*$/g;
+	rcleanScript = /^\s*<!\[CDATA\[|]]>\s*$/g;
 
 // Prefer a tbody over its parent table for containing new rows
 function manipulationTarget( elem, content ) {
@@ -8717,7 +8717,7 @@ jQuery.fn.extend( {
 
 
 var
-	rbracket = /\[\]$/,
+	rbracket = /\[]$/,
 	rCRLF = /\r?\n/g,
 	rsubmitterTypes = /^(?:submit|button|image|reset|file)$/i,
 	rsubmittable = /^(?:input|select|textarea|keygen)/i;
