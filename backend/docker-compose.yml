@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   # PostgreSQL Database
+  #configuracion
   db:
     image: postgres:15-alpine
     environment:
